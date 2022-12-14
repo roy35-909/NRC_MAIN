@@ -1,0 +1,66 @@
+<!doctype html>
+{% load static %}
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Transcript</title>
+  <link rel="stylesheet" href="{% static './transcript/style.css' %}">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+</head>
+
+<body>
+  <main class="container">
+    <h1 class="heading-text">Team Payment Details</h1>
+    <section class="payment-transcript-area">
+      <table class="table table-striped table-hover">
+        <thead>
+          <!-- ===table header -->
+          <tr>
+            <th scope="col" style="width:33%">Name</th>
+            <th scope="col" style="width:33%"> Email</th>
+            <th scope="col" style="width:33%">Transaction ID</th>
+          </tr>
+          <!-- ===table header end here==== -->
+        </thead>
+        <tbody>
+          <!--=====
+            table data 
+            ======= -->
+            {%for i in data%}
+          <tr>
+            <td>{{i.first_name}}</td>
+            <td>{{i.email}}</td>
+            <td>{{i.payment_id}}</td>
+            <td>
+              <div class="d-flex">
+                <button onclick="location.href='/delete/{{i.email}}'" class="btn delete-btn me-1">Delete</button>
+                <button onclick="location.href='/transcript/{{i.email}}'" class="btn accepted-btn">Accepted</button>
+              </div>
+            </td>
+           
+          </tr>
+        
+          
+          {%endfor%}
+          <!-- =====
+            table data end
+          =======  -->
+        </tbody>
+      </table>
+      <div class="d-flex justify-content-between">
+        <div>
+        </div>
+        
+      </div>
+
+    </section>
+  </main>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>

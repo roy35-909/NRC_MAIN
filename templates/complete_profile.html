@@ -1,0 +1,210 @@
+<!doctype html>
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static "c_p.css" %}">
+</head>
+
+<body>
+
+
+
+    <div class="register-form">
+        <form action="/cprofile" method = 'POST'>
+            {% csrf_token %}
+            <h1 class="text-center">Registration </h1>
+            <!-- project title -->
+            <label class="fs-5 mt-4" for="title">Project Title<span class="important-info">*</span></label>
+            <input id="title" {% if update %} value="{{user.project.get.project_title}}" {% endif %} class=" rounded d-block my-2 title-field px-3 py-1" type="text"
+                placeholder="Project Title" name = "p_t">
+            <!-- team name -->
+            <label class="fs-5 mt-4"  for="team-name">Team Name<span class="important-info">*</span></label>
+            <input id="team-name" {% if update %} value="{{user.project.get.team_name}}" {% endif %} class=" rounded d-block my-2 title-field px-3 py-1" type="text"
+                placeholder="Team Name" name="t_n">
+            <!-- Institution name -->
+            <label class="fs-5 mt-4"  for="inst">Institution<span class="important-info">*</span></label>
+            <input id="inst" {% if update %} value="{{user.project.get.institution}}" {% endif %} class=" rounded d-block my-2 title-field px-3 py-1" type="text"
+                placeholder="Institutiom Name" name="i_n">
+            <!-- members info -->
+
+            {% if update %}
+
+            {%else%}
+            <h2 class="fs-3 mt-5 mb-4">Other Team members</h2>
+
+            <p style="color:red;">You can't Change Team member details 2'nd time. So Be carefull</p>
+            <div class="row row-cols-1 row-cols-lg-2 g-4">
+                <div class="col">
+                    <div class="">
+                        <div class="member-info mb-3">
+                            <h2 class="fs-4 d-block mb-3">Member 1<span class="important-info">*</span></h2>
+                            <p>Name : <input class=" info-field px-3 py-1 border border-0 rounded w-75" type="text"
+                                    placeholder="Name" name="m_1_n">
+                            </p>
+                            <p>Email : <input class="info-field px-3 py-1 border border-0 rounded w-75" type="Email"
+                                    placeholder="Email" name="m_1_e"></p>
+                            
+                                <div class="size">
+                                    <p>T-Shirt Size : </p>
+                                    <select class="options" name="m_1_s" id="">
+                                        <option value="S">S</option>
+                                        <option value="M">M</option>
+                                        <option value="L">L</option>
+                                        <option value="XL">XL</option>
+                                        <option value="XXL">XXL</option>
+                                    </select>
+                                </div>
+                                
+                            
+                        
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="">
+                        <div class="member-info mb-3">
+                            <h2 class="fs-4 d-block mb-3">Member 2</h2>
+                            <p>Name : <input class=" info-field px-3 py-1 border border-0 rounded w-75" type="text"
+                                    placeholder="Name" name="m_2_n">
+                            </p>
+                            <p>Email : <input class="info-field px-3 py-1 border border-0 rounded w-75" type="Email"
+                                    placeholder="Email" name="m_2_e"></p>
+                            
+                                <div class="size">
+                                    <p>T-Shirt Size : </p>
+                                    <select class="options" name="m_2_s" id="">
+                                        <option value="S">S</option>
+                                        <option value="M">M</option>
+                                        <option value="L">L</option>
+                                        <option value="XL">XL</option>
+                                        <option value="XXL">XXL</option>
+                                    </select>
+                                </div>
+                                
+                            
+                        
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="">
+                        <div class="member-info mb-3">
+                            <h2 class="fs-4 d-block mb-3">Member 3</h2>
+                            <p>Name : <input class=" info-field px-3 py-1 border border-0 rounded w-75" type="text"
+                                    placeholder="Name" name="m_3_n">
+                            </p>
+                            <p>Email : <input class="info-field px-3 py-1 border border-0 rounded w-75" type="Email"
+                                    placeholder="Email" name="m_3_e"></p>
+                            
+                                <div class="size">
+                                    <p>T-Shirt Size : </p>
+                                    <select class="options" name="m_3_s" id="">
+                                        <option value="S">S</option>
+                                        <option value="M">M</option>
+                                        <option value="L">L</option>
+                                        <option value="XL">XL</option>
+                                        <option value="XXL">XXL</option>
+                                    </select>
+                                </div>
+                                
+                            
+                        
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="">
+                        <div class="member-info mb-3">
+                            <h2 class="fs-4 d-block mb-3">Member 4</h2>
+                            <p>Name : <input class=" info-field px-3 py-1 border border-0 rounded w-75" type="text"
+                                    placeholder="Name" name="m_4_n">
+                            </p>
+                            <p>Email : <input class="info-field px-3 py-1 border border-0 rounded w-75" type="Email"
+                                    placeholder="Email" name="m_4_e"></p>
+                            
+                                <div class="size">
+                                    <p>T-Shirt Size : </p>
+                                    <select class="options" name="m_4_s" id="">
+                                        <option value="S">S</option>
+                                        <option value="M">M</option>
+                                        <option value="L">L</option>
+                                        <option value="XL">XL</option>
+                                        <option value="XXL">XXL</option>
+                                    </select>
+                                </div>
+                                
+                            
+                        
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+                {% endif %}
+
+
+            <div class="catagory-area ">
+                <h2 class="fs-4 d-inline me-3">Select Catagory<span class="important-info">*</span></h2>
+                <select class="options" name="catagory" id="" required>
+                    {%for i in catagory%}
+                    <option value="{{i.title}}" {%if update%} {%if user.project.get.catagory == "{{i.title}}"%} selected{%endif%} {%endif%} >{{i.title}}</option>
+                    {%endfor%}
+                </select>
+            </div>
+
+            {%if update%}
+            {%else%}
+            <div class="catagory-area ">
+                <h2 class="fs-4 d-inline me-3">Select Division<span class="important-info">*</span></h2>
+                <select class="options" name="division" id="" required>
+                    <option value="Dhaka" {%if update%} {%if user.project.get.distric == "Dhaka"%} selected{%endif%} {%endif%}>Dhaka</option>
+                    <option value="Khulna" {%if update%} {%if user.project.get.distric == "Khulna"%} selected{%endif%} {%endif%}>Khulna</option>
+                    <option value="Rangpur" {%if update%} {%if user.project.get.distric == "Rangpur"%} selected{%endif%} {%endif%}>Rangpur</option>
+                    <option value="Barishal" {%if update%} {%if user.project.get.distric == "Barishal"%} selected{%endif%} {%endif%}>Barishal</option>
+                    <option value="Chattogram" {%if update%} {%if user.project.get.distric == "Chattogram"%} selected{%endif%} {%endif%}>Chattogram</option>
+                    <option value="Mymensingh" {%if update%} {%if user.project.get.distric == "Mymensingh"%} selected{%endif%} {%endif%}>Mymensingh</option>
+                    <option value="Rajshahi" {%if update%} {%if user.project.get.distric == "Rajshahi"%} selected{%endif%} {%endif%}>Rajshahi</option>
+                    <option value="Sylhet" {%if update%} {%if user.project.get.distric == "Sylhet"%} selected{%endif%} {%endif%}>Sylhet</option>
+                    
+                </select>
+            </div>
+            {% endif %}
+
+            <label class="fs-4 mt-2 mb-2" for="description">Description<span class="important-info">*</span></label>
+            <textarea id="description"  class="border-none d-block w-100 h-25" name="description" id="" cols="30"
+                rows="10">{% if update %}{{user.project.get.description}}{% endif %}</textarea>
+            
+            <div class=" d-flex justify-content-between">
+                <div>
+                </div>
+                <div>
+                    <button type="submit" class="btn-register rounded">Register</button>
+                </div>
+            </div>
+
+        </form>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

@@ -1,0 +1,118 @@
+
+{% extends 'base.html' %}
+{% load static %}
+{% block name %}সম্পর্কিত{%endblock%}
+
+{% block content %}
+  <!--============
+        Vedio Section 
+        ==============-->
+  <section class="about-vedio-section">
+    <div class="container">
+      <div class="row">
+        <div col-md-12>
+          <div class="about-page-vedio">
+            <iframe style="border-radius: 20px;" width="100%" height="100%"
+              src="{{data.video_url}}" title="YouTube video player" frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="prize-section">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 d-flex align-items-center justify-content-center alight-content-center text-center flex-colum">
+          <div class="prize-img ">
+            <img src="{% static "./img/prize.png" %}" alt="prize">
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="section-header prize-header">
+            <h3>WHAT YOU WILL GET WITH THE</h3>
+            <h2>REGISTRATION</h2>
+
+            <div class="prize-content">
+              <ul>
+                {%for what in whats%}
+                <li>{{what.title}}</li>   
+                {%endfor%}                
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!--============
+        About Section 
+        ==============-->
+
+  <section class="about-page-section">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="section-header about-head">
+            <h3></h3>
+            <h2>জাতীয় রোবটিক্স প্রতিযোগিতা কি?</h2>
+          </div>
+
+          <div class="about-page-content">
+            <p>জাতীয় রোবটিক্স প্রতিযোগিতা হল সৃজনশীলতায় ভরপুর সমস্যা সমধানের দক্ষতা বিকাশের একটি আদর্শ জায়গা যেখানে
+              বিভিন্ন রোবট ডিজাইন ও তার কাজ এবং তার সুবিধা সমূহ জাতির সামনে তুলে ধরে নতুন চিন্তার বিকাশ ঘটানোর একটি
+              মাধ্যম।
+              এই প্রতিযোগিতার মাধ্যমে আমরা আমাদের রোবট নিয়ে পুরনো চিন্তাধারা অনেকটা পরিবর্তন করতে সমর্থ্য হব।
+            </p>
+          </div>
+
+          <div class="section-header about-head">
+            <h3></h3>
+            <h2>উদ্দেশ্য</h2>
+          </div>
+
+          <div class="about-page-content">
+            <ul>
+              <li>বাংলাদেশের সকল শিক্ষার্থীকে রোবোটিক্সে দক্ষতা অর্জনে সহযোগিতা করা ।</li>
+              <li>প্রতিযোগিতামূলক বিশ্বের জন্য প্রজম্মকে দক্ষ করে তোলা</li>
+              <li>পঞ্চম শিল্প বিপ্লবে বাংলাদেশকে বিশ্বের অন্যান্য দেশের তুলনায় এগিয়ে রাখাও আমাদের অন্যতম প্রধান উদ্দেশ্য
+              </li>
+              <li>এই রোবোটিক্স আসরের লক্ষ্য শিক্ষার্থী দের STEM (বিজ্ঞান, প্রযুক্তি, প্রকৌশল এবং গণিত), এর দক্ষতা বৃদ্ধি
+                করা ।</li>
+            </ul>
+          </div>
+
+          <div class="section-header about-head">
+            <h3></h3>
+            <h2>কারা অংশগ্রহন করবে</h2>
+          </div>
+
+          <div class="about-page-content">
+            <ul>
+              <li>স্কুল,কলেজ ও বিশ্ববিদ্যালয় সহ সারা বাংলাদেশের যেকোনো শিক্ষা প্রতিষ্ঠান এই প্রতিযোগিতায় অংশগ্রহণ করতে
+                পারবে।</li>
+              <li>লাইন ফলোয়ার রোবট - স্কুল ,কলেজ ও বিশ্ববিদ্যালয়।
+              </li>
+              <li>সকার বট - স্কুল,কলেজ ও বিশ্ববিদ্যালয়।
+              </li>
+              <li>ড্রোন রেসিং- বিশ্ববিদ্যালয়।</li>
+              <li>প্রজেক্ট প্রদর্শন - স্কূল ,কলেজ ও বিশ্ববিদ্যালয়।</li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!--============
+        Brand Section 
+        ==============-->
+  <!-- Client's Logo Start -->
+  {% endblock %}
+  

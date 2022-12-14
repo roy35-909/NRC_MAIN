@@ -1,0 +1,77 @@
+<!doctype html>
+{% load static %}
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://kit.fontawesome.com/70b0099f64.js" crossorigin="anonymous"></script>
+    <title>Bootstrap demo</title>
+    <link rel="stylesheet" href="{% static "user-card.css" %}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+  </head>
+  <body>
+
+
+<main>
+  <h3 style="text-align:center;">Total Team : {{data.count}}</h3>
+    {% for i in data %}
+    <section class="team-details">
+      <h1 class="mb-4">{{i.project.get.team_name}}</h1>
+      <!-- ====== member 1 details ===== -->
+
+      <section class="member-information mb-3 mt-4">
+        <div class="info">
+             <h4>
+                <i class="fa-solid fa-user me-2 icons"></i>
+                <span>{{i.first_name}}</span>
+            </h4>
+        </div>
+        <div class="info email">
+            <h4>
+                <i class="fa-solid fa-envelope me-2 icons"></i>
+                <span>{{i.email}}</span>
+            </h4>
+        </div>
+        <div class="info">
+            <h4>
+                <i class="fa-solid fa-shirt me-2 icons"></i>T-shirt : <span>{{i.t_shirt_size}}</span>
+            </h4>
+        </div>
+      </section>
+
+
+      
+      {%for j in i.teams.all%}
+      
+      <section class="member-information mb-3 mt-4">
+        <div class="info">
+             <h4>
+                <i class="fa-solid fa-user me-2 icons"></i>
+                <span>{{j.name}}</span>
+            </h4>
+        </div>
+        <div class="info email">
+            <h4>
+                <i class="fa-solid fa-envelope me-2 icons"></i>
+                <span>{{j.email}}</span>
+            </h4>
+        </div>
+        <div class="info">
+            <h4>
+                <i class="fa-solid fa-shirt me-2 icons"></i>T-shirt : <span>{{j.t_shirt_size}}</span>
+            </h4>
+        </div>
+      </section>
+        {%endfor%}
+            
+    </section>
+    {% endfor %}
+</main>
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+  </body>
+</html>

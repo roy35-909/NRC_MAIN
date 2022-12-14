@@ -1,0 +1,48 @@
+<!doctype html>
+{% load static %}
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Forgot Password</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static "./reg.css" %}">
+</head>
+
+<body>
+    <div class="register-form">
+        <div class="form-area">
+            <form action="/fpass" method='POST'>
+                {% csrf_token %}
+                <h1 class="text-center">Forgot Password</h1>
+                <!-- leader email -->
+                <label class=" mt-4" for="email">Email<span class="important-info">*</span></label>
+                <input id="email" name = "email" class=" rounded d-block  my-2 title-field px-3 py-1" type="text" placeholder="Email">
+                <!-- register button -->
+                <div class=" d-flex justify-content-between">
+                    <div>
+                        {% if messages %}
+
+                        {% for message in messages %}
+                        <p class="fw-bold text-center text-danger">{{message}}</p>
+                        {% endfor %}
+                        {% endif %}
+                        <a href="/">Home</a>
+                    </div>
+                    <div>
+                        <button class="btn-register rounded">Send mail</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

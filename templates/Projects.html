@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% block title %}Projects{%endblock%}
+{% block name %}প্রজেক্ট{%endblock%}
+{% block content %}
+
+  <section class="news-page-section">
+    <div class="container">
+
+      <!--======= 
+              First row
+            =========-->
+      <div class="row">
+{%for i in project%}
+        <div class="col-md-4 mb-3">
+
+          <!--News card start-->
+          <div class="post-slide news-page-card">
+            <div class="post-content page-news-content">
+              <h2 class="post-title"><a href="#">{{i.project.get.project_title}}</a></h2>
+              <p class="post-description">
+                {{i.project.get.description}}
+              </p>
+              <ul class="post-bar">
+                <li><i class="fa fa-calendar"></i> {{i.project.get.team_name}}</li>
+              </ul>
+              
+            </div>
+          </div>
+          <!--News card end-->
+
+        </div>
+{%endfor%}
+      </div>
+
+
+     
+
+    </div>
+  </section>
+
+{%endblock%}
+  

@@ -1,0 +1,44 @@
+
+{% extends 'base.html' %}
+{% block title %}News{%endblock%}
+{% block name %}নিউজ{%endblock%}
+{% block content %}
+
+  <!--============
+        News Section 
+        ==============-->
+  <section class="news-page-section">
+    <div class="container">
+
+      <!--======= 
+              First row
+            =========-->
+      <div class="row">
+
+{%for i in news%}
+        <div class="col-md-4 mb-3">
+
+          <!--News card start-->
+          <div class="post-slide news-page-card">
+            <div class="post-img">
+              <a href="#"><img src="{{i.photo.url}}" alt=""></a>
+            </div>
+            <div class="post-content page-news-content">
+              <h3 class="post-title"><a href="#">{{i.title}}</a></h3>
+              <p class="post-description">
+                {{i.s_about}}
+              </p>
+              <ul class="post-bar">
+                <li><i class="fa fa-calendar"></i>{{i.date}}</li>
+              </ul>
+              
+            </div>
+          </div>
+          <!--News card end-->
+
+        </div>
+{%endfor%}
+      </div>
+    </div>
+  </section>
+  {%endblock%}

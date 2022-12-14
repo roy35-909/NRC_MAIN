@@ -1,0 +1,158 @@
+<!doctype html>
+{% load static %}
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>NRC-2022 | User Profile</title>
+    <link rel="icon" type="image/x-icon" href="img/NCR Logo.png">
+
+    <!-- Font Awesome icons (free version)-->
+    <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    	
+    <!-- Theme CSS File -->
+    <link rel="stylesheet" href="{%static "./profile/css/Style.css"%}">
+</head>
+
+    <body>
+        <!--========
+        Logo & Navbar
+        ===========-->
+        <header>
+          <div id="sticky-menu" class="">
+            <nav class=" container nav-menu navbar navbar-expand-lg bg-light navbar-expand">
+              <div id="toggle" class="container-fluid">
+                <!-- Logo -->
+                <a class="navbar-brand" href="#">
+                  
+                    <img class="main-logo" src="{%static "img/NCR Logo.png"%}" alt="logo" onclick="location.href='/'">
+                
+                  
+                </a>
+      
+                <!--Responsive Button -->
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                  aria-label="Toggle navigation">
+                  <span class="fa-solid fa-bars"></span>
+                </button>
+      
+                <!--Navigation Start-->
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                  <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                      <a class="nav-link active" aria-current="page" href="#"><i class="user-icon fa-solid fa-user"></i> {{user.first_name}}</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </nav>
+           </div>
+        </header>
+
+        <!--==========
+        Button Section
+        ===========-->
+
+        <section class="button-section">
+          <div class="container">
+            <div class="row">
+              {% if user.is_team_registration_done %}
+              {% if user.is_payment_apcepted %}
+              {%else%}
+                  <div class="col-md-4">
+                  <button type="button" onclick="location.href='/payment'" class="btn btn-secondary payment">{% if user.is_payment_done %}Edit Payment Info {% else %} payment Now{%endif%}</button>
+                </div>
+                {%endif%}
+                <div class="col-md-4">
+                  <button type="button" onclick="location.href='/cprofile'" class="btn btn-secondary">Edit Profile</button>
+                </div>
+
+              {%else%}
+              <div class="col-md-4">
+                <button type="button" onclick="location.href='/cprofile'" class="btn btn-secondary">Complete profile</button>
+              </div>
+              {%endif%}
+            </div>
+
+          </div>
+        </section>
+
+
+        <!--======================
+        Member Information Section
+        ========================-->
+        <section class="member-section">
+          <div class="container">
+            <div class="row">
+           
+              <div class="col-md-8">
+                <section class="member-details">
+                  {% if user.is_team_registration_done %}
+                  <h3 class="mb-4">{{user.project.get.team_name}}</h3>
+
+                  <div class="row row-cols-1 row-cols-md-2 g-4">
+                    <div class="col">
+                      <div class="card">
+                        <div class="card-body">
+                          <h5 class="card-title">Name : <span>{{user.first_name}}</span></h5>
+                          <p class="card-text mb-1">Email : <span>{{user.email}}</span></p>
+                          <p class="card-text">T-shirt : <span>{{user.t_shirt_size}}</span></p>
+                        </div>
+                      </div>
+                    </div>
+                    {%for i in user.teams.all%}
+                    <div class="col">
+                      <div class="card">
+                        <div class="card-body">
+                          <h5 class="card-title">Name : <span>{{i.name}}</span></h5>
+                          <p class="card-text mb-1">Email : <span>{{i.email}}</span></p>
+                          <p class="card-text">T-shirt : <span>{{i.t_shirt_size}}</span></p>
+                        </div>
+                      </div>
+                    </div>
+                    {%endfor%}
+                  </div>
+                  {% else %}
+                  <h5 style="color:red;"> Complete your profile by click "Complete Profile" button</h5>
+                  {%endif%}
+                </section>
+              
+
+              </div>
+              <div class="col-md-4 d-flex align-items-center justify-content-center alight-content-center  flex-colum">
+                <section class="user-info-details ">
+                  <h3 class="mb-4">Registration Clearence</h3>
+                  <h2><i class="fa-solid fa-circle-check"></i>Is registration done?</h2>
+              <h2><i class="fa-solid {% if user.is_team_registration_done %} fa-circle-check {%else%} fa-circle-xmark text-danger{%endif%}"></i>Profile Complete?</h2>
+              <h2><i class="fa-solid {% if user.is_payment_done %} fa-circle-check {%else%} fa-circle-xmark text-danger{%endif%}"></i>Is payment done?</h2>
+              <h2><i class="fa-solid {% if user.is_payment_apcepted %} fa-circle-check {%else%} fa-circle-xmark text-danger {%endif%}"></i>Payment Apcepted?</h2>
+                </section> 
+
+              </div>
+
+            </div>
+          </div>
+        </section>
+
+
+        
+
+
+
+
+
+    
+    <!-- Jquery Lib File -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Bootstrap Js File-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+    <!-- Main JS File -->
+    <script type="text/javascript" src="{%static "./profile/js/main.js"%}"></script>
+  </body>
+</html>

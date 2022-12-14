@@ -1,0 +1,142 @@
+
+{% extends 'base.html' %}
+
+{% block name %}অতিথিবৃন্দ{%endblock%}
+{% block content %}
+  <!--==========================
+        Inauguration Ceremony Section 
+        ============================-->
+  <section class="judges-section">
+    <div class="container">
+      <div class="col-md-12">
+        <div class="section-header">
+          <h3>Inauguration Ceremony</h3>
+          <h2>Chief Guest</h2>
+        </div>
+      </div>
+
+      <div class="row judges-card-row" style="justify-content: center;">
+       <div></div>
+        {%for i in first_guest%}
+        <div class="col-md-4">
+          <!-- Card-->
+          <div class="card shadow-sm border-0 rounded">
+            <div class="card-body p-0"><img src="{{i.photo.url}}"
+                alt="" class="w-100 card-img-top">
+              <div class="p-4">
+                <h5 class="mb-0">{{i.name}}</h5>
+                <p class="small text-muted">{{i.title}}</p>
+                <ul class="social mb-0 list-inline mt-3">
+                  <li class="list-inline-item m-0"><a href="{{i.facebook_link}}" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                  </li>
+                  <li class="list-inline-item m-0"><a href="{{i.Twiter_link}}" class="social-link"><i class="fab fa-twitter"></i></a>
+                  </li>
+                  <li class="list-inline-item m-0"><a href="{{i.Linkedin_link}}" class="social-link"><i class="fab fa-linkedin"></i></a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <!-- Card End-->
+        </div>
+        {% endfor %}
+        
+        
+      </div>
+      <!--Row End-->
+
+    </div>
+  </section>
+
+  <!--======================
+        Closing Ceremony Section 
+        ========================-->
+  <section class="judges-section closing-section">
+    <div class="container">
+      <div class="col-md-12">
+        <div class="section-header">
+          <h3>Closing Ceremony</h3>
+          <h2>Chief Guest</h2>
+        </div>
+      </div>
+
+      <div class="row judges-card-row "style="justify-content: center;">
+
+
+        <div></div>
+        {%for i in secound_guest%}
+        <div class="col-md-4">
+          <!-- Card-->
+          <div class="card shadow-sm border-0 rounded">
+            <div class="card-body p-0"><img src="{{i.photo.url}}"
+                alt="" class="w-100 card-img-top">
+              <div class="p-4">
+                <h5 class="mb-0">{{i.name}}</h5>
+                <p class="small text-muted">{{i.title}}</p>
+                <ul class="social mb-0 list-inline mt-3">
+                  <li class="list-inline-item m-0"><a href="{{i.facebook_link}}" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                  </li>
+                  <li class="list-inline-item m-0"><a href="{{i.Twiter_link}}" class="social-link"><i class="fab fa-twitter"></i></a>
+                  </li>
+                  <li class="list-inline-item m-0"><a href="{{i.Linkedin_link}}" class="social-link"><i class="fab fa-linkedin"></i></a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <!-- Card End-->
+        </div>
+        {% endfor %}
+      </div>
+      <!--Row End-->
+
+    </div>
+  </section>
+
+
+
+
+  <!--============
+        Judges Section 
+        ==============-->
+  <section class="judges-section">
+    <div class="container">
+      <div class="col-md-12">
+        <div class="section-header">
+          <h3>জাতীয় রোবোটিক্স প্রতিযোগিতা ২০২২</h3>
+          <h2>Honorable Judges</h2>
+        </div>
+      </div>
+
+      <div class="row judges-card-row "style="justify-content: center;">
+
+
+        <div></div>
+        {%for i in h_j%}
+        <div class="col-md-3">
+          <!-- Card-->
+          <div class="card shadow-sm border-0 rounded">
+            <div class="card-body p-0"><img src="{{i.photo.url}}"
+                alt="" class="w-100 card-img-top">
+              <div class="p-4">
+                <h5 class="mb-0">{{i.name}}</h5>
+                <p class="small text-muted">{{i.title}}</p>
+                <ul class="social mb-0 list-inline mt-3">
+                  <li class="list-inline-item m-0"><a href="{{i.facebook_link}}" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                  </li>
+                  <li class="list-inline-item m-0"><a href="{{i.Twiter_link}}" class="social-link"><i class="fab fa-twitter"></i></a>
+                  </li>
+                  <li class="list-inline-item m-0"><a href="{{i.Linkedin_link}}" class="social-link"><i class="fab fa-linkedin"></i></a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <!-- Card End-->
+        </div>
+        {% endfor %}
+      </div>
+      <!--Row End-->
+    </div>
+  </section>
+{% endblock %}

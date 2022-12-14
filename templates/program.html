@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block title %}Catagory{%endblock%}
+{% block name %}প্রোগ্রাম ক্যাটাগরি{%endblock%}
+{% block content %}
+{%load static%}
+{% for i in catagory %}
+  <section class="program-section">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="section-header">
+            <h3>স্কুল ,কলেজ ও বিশ্ববিদ্যালয়</h3>
+            <h2>{{i.title}}</h2>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div
+          class="col-md-6 d-flex align-items-center justify-content-center alight-content-center text-center flex-colum">
+          <div class="program-img ">
+            <img src="{%if i.photo %}{{i.photo.url}}{%else%}{%static "./img/robot.jpg"%}{%endif%}" alt="prize">
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="program-content">
+            <p>
+             {{i.description|safe}}
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+  {%endfor%}
+{%endblock%}
